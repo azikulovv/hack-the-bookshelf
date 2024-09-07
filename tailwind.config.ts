@@ -7,6 +7,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: "Poppins, sans-serif",
+        gilroy: "Gilroy",
       },
     },
   },

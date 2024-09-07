@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("./fonts/Gilroy.css");
 
 @tailwind base;
 @tailwind components;
@@ -6,6 +7,44 @@
 
 @layer base {
   * {
-    @apply font-sans;
+    @apply font-gilroy;
+  }
+
+  body {
+    @apply bg-[#F9FAFB];
+  }
+}
+
+@layer utilities {
+  .text-headline-1 {
+    @apply font-gilroy text-[48px] font-medium leading-[130%];
+  }
+
+  .text-headline-3 {
+    @apply font-gilroy text-[32px] font-medium leading-[130%];
+  }
+
+  .text-headline-5 {
+    @apply font-gilroy text-[24px] font-medium leading-[130%];
+  }
+
+  .text-headline-6 {
+    @apply font-gilroy text-[20px] font-medium leading-[130%];
+  }
+
+  .text-body-16 {
+    @apply font-gilroy text-[16px] font-medium leading-[130%];
+  }
+
+  .text-body-14 {
+    @apply font-gilroy text-[14px] font-medium leading-[130%];
+  }
+
+  .text-body-n-14 {
+    @apply font-gilroy text-[14px] font-normal leading-[130%];
+  }
+
+  .text-body-12 {
+    @apply font-gilroy text-[12px] font-medium leading-[130%];
   }
 }

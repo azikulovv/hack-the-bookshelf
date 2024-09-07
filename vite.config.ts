@@ -1,14 +1,15 @@
 import { defineConfig } from "vite";
 import { fileURLToPath, URL } from "node:url";
+import svgr from "vite-plugin-svgr";
 import react from "@vitejs/plugin-react-swc";
-import process from "node:process";
 import dotenv from "dotenv";
+import process from "node:process";
 
 dotenv.config();
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), svgr()],
 
   resolve: {
     alias: {
