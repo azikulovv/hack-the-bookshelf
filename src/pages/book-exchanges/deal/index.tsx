@@ -1,7 +1,10 @@
 import ChevronRightIcon from "@/assets/icons/chevron-right.svg?react";
 import { Input } from "@/components/ui/Input";
+import { useNavigate } from "react-router-dom";
 
 export const Deal = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="p-[0_28px_28px_28px] mt-[4px]">
       <h1 className="text-headline-1 text-[#1A1A1A]">Создание сделки</h1>
@@ -32,6 +35,7 @@ export const Deal = () => {
               "Владимир Набоков «Лолита»",
               "Уильям Фолкнер «Звук и ярость»",
             ]}
+            onClickAutocomplete={() => navigate("/book-exchanges/deal/create")}
             placeholder="Выберите книгу"
           />
         </div>
