@@ -45,7 +45,7 @@ export const Signup = () => {
           .replace("-", ""),
       });
 
-      navigate("/auth/liked-categories");
+      navigate("/");
     } catch (e) {
       console.error(e);
     }
