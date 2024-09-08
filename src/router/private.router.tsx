@@ -7,6 +7,7 @@ import { ChatRouter } from "./modules/chat.router";
 import { SearchRouter } from "./modules/search.router";
 import { BookExchangesRouter } from "./modules/book-exchanges.router";
 import { useAuthStore } from "@/stores";
+import { LikedCategories } from "@/pages/liked-categories";
 
 export const PrivateRouter = () => {
   const authStore = useAuthStore();
@@ -20,6 +21,8 @@ export const PrivateRouter = () => {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/games" element={<Games />} />
+        <Route path="/liked-categories" element={<LikedCategories />} />
+
         <Route path="/chat/*" element={<ChatRouter />} />
         <Route path="/search/*" element={<SearchRouter />} />
         <Route path="/book-exchanges/*" element={<BookExchangesRouter />} />

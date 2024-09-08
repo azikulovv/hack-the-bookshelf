@@ -4,6 +4,7 @@ import type { ChangeEvent, FunctionComponent } from "react";
 
 interface InputProps {
   value?: string;
+  className?: string;
   placeholder?: string;
   defaultValue?: string;
   autocomplete?: string[];
@@ -16,6 +17,7 @@ export const Input: FunctionComponent<InputProps> = ({
   placeholder,
   autocomplete = [],
   defaultValue,
+  className,
   onChange,
   onClickAutocomplete,
 }) => {
@@ -59,7 +61,7 @@ export const Input: FunctionComponent<InputProps> = ({
   };
 
   return (
-    <div className="relative">
+    <div className={cn("relative", className)}>
       <input
         type="text"
         className={cn(

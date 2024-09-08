@@ -45,7 +45,7 @@ export const Signup = () => {
           .replace("-", ""),
       });
 
-      navigate("/");
+      navigate("/liked-categories");
     } catch (e) {
       console.error(e);
     }
@@ -116,7 +116,7 @@ export const Signup = () => {
             <div className="relative">
               <input
                 {...register("password", { required: true, minLength: 3, maxLength: 36 })}
-                type="text"
+                type="password"
                 className="text-body-14 text-[#1a1a1a] p-[12px_16px] rounded-[10px] border border-[#E3E3E3] bg-[#F9FAFB] w-full outline-none focus:border-[#447DF3]"
                 placeholder="Введите пароль"
               />
@@ -132,7 +132,7 @@ export const Signup = () => {
             <div className="relative">
               <input
                 {...register("repeatPassword", { required: true, minLength: 3, maxLength: 36 })}
-                type="text"
+                type="password"
                 className="text-body-14 text-[#1a1a1a] p-[12px_16px] rounded-[10px] border border-[#E3E3E3] bg-[#F9FAFB] w-full outline-none focus:border-[#447DF3]"
                 placeholder="Введите пароль повторно"
               />
