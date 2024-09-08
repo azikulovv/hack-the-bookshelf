@@ -52,8 +52,8 @@ export const Signup = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 p-[28px] gap-x-[10px]">
-      <img src={Image} alt="" className="w-full h-full object-cover" />
+    <div className="grid grid-cols-2 p-[28px] gap-x-[10px] bg-[#46aab81c]">
+      <img src={Image} alt="" className="w-full h-[calc(100vh-56px)] rounded-[4px] object-cover" />
 
       <div className="flex items-center justify-center">
         <form
