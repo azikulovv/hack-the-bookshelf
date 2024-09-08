@@ -23,4 +23,26 @@ export class AuthClient {
       throw new Error(String(error));
     }
   }
+
+  static async likedCategories(
+    credentials: IAuthClient.AuthenticateRequest
+  ): Promise<IAuthClient.AuthenticateResponse> {
+    try {
+      const response = await apiClient.post("/api/liked_categories/", credentials);
+      return response.data;
+    } catch (error) {
+      throw new Error(String(error));
+    }
+  }
+
+  static async favorites(
+    credentials: IAuthClient.AuthenticateRequest
+  ): Promise<IAuthClient.AuthenticateResponse> {
+    try {
+      const response = await apiClient.post("/api/favorites/", credentials);
+      return response.data;
+    } catch (error) {
+      throw new Error(String(error));
+    }
+  }
 }

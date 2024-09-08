@@ -1,46 +1,55 @@
-import cn from "classnames";
 import { useState } from "react";
+import cn from "classnames";
 import type { ChangeEvent, FunctionComponent } from "react";
 
 interface InputProps {
   value?: string;
   placeholder?: string;
   defaultValue?: string;
-  autocomplete?: boolean;
-
+  autocomplete?: string[];
+  onClickAutocomplete?(value: string): void;
   onChange?(e: ChangeEvent<HTMLInputElement>): void;
 }
 
 export const Input: FunctionComponent<InputProps> = ({
-  value,
+  value = "",
   placeholder,
-  autocomplete,
+  autocomplete = [],
   defaultValue,
   onChange,
+  onClickAutocomplete,
 }) => {
-  const [fieldValue, setFieldValue] = useState<string>(value || "");
+  const [fieldValue, setFieldValue] = useState<string>(value);
+  const [isSelected, setIsSelected] = useState<boolean>(false);
 
-  const autoComplete = [
-    "AutoComplete 1",
-    "AutoComplete 2",
-    "AutoComplete 3",
-    "AutoComplete 4",
-    "AutoComplete 5",
-  ];
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (isSelected) setIsSelected(false);
+    setFieldValue(e.target.value);
+    onChange?.(e);
+  };
 
-  const _renderAutocomplete = () => {
-    const items = autoComplete.filter((item) =>
+  const handleAutocompleteClick = (item: string) => {
+    setFieldValue(item);
+    setIsSelected(true);
+    onClickAutocomplete?.(item);
+  };
+
+  const renderAutocomplete = () => {
+    if (!autocomplete.length || isSelected || !fieldValue) return null;
+
+    const filteredItems = autocomplete.filter((item) =>
       item.toLowerCase().includes(fieldValue.toLowerCase())
     );
 
-    if (!autocomplete || !fieldValue || items.length === 0) return;
+    if (filteredItems.length === 0) return null;
 
     return (
-      <div className="absolute left-0 top-[58px] border-[#E3E3E3] border bg-[#F9FAFB] rounded-[10px] p-[12px_16px] outline-none text-[#1A1A1A] w-full flex flex-col">
-        {items.map((item, key) => (
+      <div className="absolute left-0 top-[58px] border border-[#E3E3E3] bg-[#F9FAFB] rounded-[10px] outline-none text-[#1A1A1A] w-full flex flex-col">
+        {filteredItems.map((item, index) => (
           <button
-            key={key}
-            className="[&:last-child]:border-b-0 border-b border-[#E3E3E3] w-full text-start text-body-14 text-[#1A1A1A]"
+            key={index}
+            onClick={() => handleAutocompleteClick(item)}
+            className="w-full text-start text-body-14 text-[#565656] py-[12px] mx-[16px] border-b border-[#E3E3E3] last:border-b-0"
           >
             {item}
           </button>
@@ -60,13 +69,9 @@ export const Input: FunctionComponent<InputProps> = ({
         placeholder={placeholder}
         value={fieldValue}
         defaultValue={defaultValue}
-        onChange={(e) => {
-          setFieldValue(e.target.value);
-          onChange?.(e);
-        }}
+        onChange={handleInputChange}
       />
-
-      {_renderAutocomplete()}
+      {renderAutocomplete()}
     </div>
   );
 };

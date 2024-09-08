@@ -10,6 +10,7 @@ interface State {
     access: string;
     refresh: string;
   } | null;
+  likedCategories: string[] | null;
 }
 
 interface Actions {
@@ -21,6 +22,7 @@ interface Actions {
 const initialState: State = {
   isAuth: null,
   token: null,
+  likedCategories: null,
 };
 
 export const useAuthStore = create<State & Actions>()(
@@ -42,6 +44,7 @@ export const useAuthStore = create<State & Actions>()(
         } catch (e) {
           console.error(e);
           get().logout();
+          throw new Error(String(e));
         }
       },
 
@@ -59,6 +62,7 @@ export const useAuthStore = create<State & Actions>()(
         } catch (e) {
           console.error(e);
           get().logout();
+          throw new Error(String(e));
         }
       },
 

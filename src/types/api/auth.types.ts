@@ -11,6 +11,7 @@ export namespace IAuthClient {
 
   export interface AuthenticateRequest extends AuthorizeRequest {
     phone_number: string;
+    full_name: string;
   }
 
   export interface AuthenticateResponse extends AuthorizeResponse {

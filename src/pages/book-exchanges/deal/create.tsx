@@ -177,6 +177,24 @@ export const Create = () => {
           </div>
         </div>
       </section>
+
+      <div className="grid grid-cols-2 gap-x-[24px] mt-[24px]">
+        <button
+          className={
+            "p-[12px_24px] h-[42px] rounded-[10px] text-body-14 flex items-center justify-center bg-white text-[#447DF3] border border-[#447DF33D]"
+          }
+        >
+          Предпросмотр
+        </button>
+
+        <button
+          className={
+            "p-[12px_24px] h-[42px] rounded-[10px] text-body-14 flex items-center justify-center bg-[#447DF3] text-white"
+          }
+        >
+          Создать
+        </button>
+      </div>
     </div>
   );
 };

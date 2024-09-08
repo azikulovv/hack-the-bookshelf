@@ -60,27 +60,45 @@ export const Header = () => {
       </div>
 
       <div className="flex items-center gap-x-[4px]">
-        <div className="h-[48px] p-[16px] flex items-center gap-x-[10px] bg-[#F4F5F6] rounded-[4px]">
-          <SearchIcon className="w-[16px] h-[16px] text-[#8C8C8C]" />
+        <NavLink
+          to="/search"
+          className={({ isActive }) =>
+            cn(
+              "w-[48px] h-[48px] rounded-full grid place-items-center relative",
+              isActive ? "bg-[#447DF3] text-white" : "bg-[#F4F5F6] text-[#8C8C8C]"
+            )
+          }
+        >
+          <SearchIcon className="text-[inherit] w-[16px] h-[16px]" />
+        </NavLink>
 
-          <input
-            type="text"
-            placeholder="Поиск"
-            className="text-[#8C8C8C] bg-[#00000000] text-[14px] font-medium leading-[130%] outline-none"
-          />
-        </div>
-
-        <button className="w-[48px] h-[48px] bg-[#F4F5F6] rounded-full grid place-items-center relative">
-          <BellIcon className="text-[#8C8C8C] w-[20px] h-[20px]" />
+        <NavLink
+          to="/notification"
+          className={({ isActive }) =>
+            cn(
+              "w-[48px] h-[48px] rounded-full grid place-items-center relative",
+              isActive ? "bg-[#447DF3] text-white" : "bg-[#F4F5F6] text-[#8C8C8C]"
+            )
+          }
+        >
+          <BellIcon className="text-[inherit] w-[20px] h-[20px]" />
 
           <span className="absolute top-[14px] rounded-full border border-[#EDFEFF] right-[14px] w-[8px] h-[8px] bg-[#F24F4F]"></span>
-        </button>
+        </NavLink>
 
-        <button className="w-[48px] h-[48px] bg-[#F4F5F6] rounded-full grid place-items-center relative">
-          <ChatIcon className="text-[#8C8C8C] w-[20px] h-[20px]" />
+        <NavLink
+          to="/chat"
+          className={({ isActive }) =>
+            cn(
+              "w-[48px] h-[48px] rounded-full grid place-items-center relative",
+              isActive ? "bg-[#447DF3] text-white" : "bg-[#F4F5F6] text-[#8C8C8C]"
+            )
+          }
+        >
+          <ChatIcon className="text-[inherit] w-[20px] h-[20px]" />
 
           <span className="absolute top-[14px] rounded-full border border-[#EDFEFF] right-[14px] w-[8px] h-[8px] bg-[#F24F4F]"></span>
-        </button>
+        </NavLink>
 
         <button className="w-[48px] h-[48px]">
           <img src={UserImage} alt="" className="w-full h-full aspect-square" />
